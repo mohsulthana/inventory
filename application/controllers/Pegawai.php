@@ -138,15 +138,17 @@ class Pegawai extends CI_Controller {
 			'id_petugas' => $this->session->id_petugas,
 			 );
 		$set=array(
-
 			'password' => sha1($this->input->post('new_pass')),
 		);
 		$this->M_petugas->ubah($where,$set);
 		if ($this->session->level == 'admin'){
+			$this->session->set_flashdata('pesan', 'Password berhasil diubah');
 		redirect('Admin/setting','refresh');
 		}elseif($this->session->level=='operator'){
+			$this->session->set_flashdata('pesan', 'Password berhasil diubah');
 		redirect('Operator/setting');
 		}elseif($this->session->level=='peminjam'){
+			$this->session->set_flashdata('pesan', 'Password berhasil diubah');
 		redirect('Peminjam/setting');
 		}
 

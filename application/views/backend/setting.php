@@ -33,13 +33,17 @@
                 Rp. <input required type="number" class="form-control" name="denda" value="<?= $denda; ?>">
             </div>
             <button type="submit" class="btn btn-success notika-btn-success" ><span data-toggle="modal" data-target="#detail_peminjam">Update</span></button>
-            <?php form_close();?>
+            <?= form_close();?>
         </div>
         <!-- /. Box 2 -->
         <div class="box-body">
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <?php echo $this->session->pesan; ?>
+                    <?php if ($this->session->pesan) {?>
+                    <div class="alert alert-success" role="alert">
+                        <?php echo $this->session->pesan; ?>
+                    </div>
+                    <?php }; ?>
                     <div class="form-example-wrap mg-t-30">
                         <div class="cmp-tb-hd cmp-int-hd">
                             <h4 class="panel-title">Ubah Password</h4>
